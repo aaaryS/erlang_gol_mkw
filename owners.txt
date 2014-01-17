@@ -1,0 +1,9 @@
+Repozytorium Gry w zycie w jezyku erlang
+przedmiot: Programowanie Współbieżne i Rozproszone
+rok akademicki: 2013/2014
+rok studiow: III - semestr I
+
+sklad zespolu:
+Grzegorz Kozub
+Aleksander Maj
+Bartlomiej Wojdan
