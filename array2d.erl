@@ -1,10 +1,10 @@
 -module(array2d).
--export([showArray/1,flattenArray/2,removeLast/1,removeFirst/1,getLast/1,getFirst/1,getElem/3,getElem/2,getHeight/1,getWidth/1,neighbours/2,check_neighbours/2,sum_neighbours/2,composeOneArray/4,divideArray/2]).
+-export([onBoard/3,showArray/1,flattenArray/2,removeLast/1,removeFirst/1,getLast/1,getFirst/1,getElem/3,getElem/2,getHeight/1,getWidth/1,neighbours/2,check_neighbours/2,sum_neighbours/2,composeOneArray/4,divideArray/2]).
 
 
 getElem(X,Y,Arr)->  %zwraca element tablicy znajdujacy się pod X,Y
        S = lists:nth(X,Arr), %uwaga zwraca 0 i 1 a nie 1 i 2 tak jak jest w plikach
-       lists:nth(Y,S)-49.
+       lists:nth(Y,S).
        
 getElem({X,Y},Arr)-> %zwraca element tablicy znajdujacy się pod {X,Y}
       getElem(X,Y,Arr).
@@ -30,7 +30,7 @@ getWidth(Arr)-> % zwraca dlugosc tablicy
         length(S).
         
         
-onBoard(X,Y,L) -> %sprawdza czy podana komórka znajduje się na tablicy
+onBoard(X,Y,L) -> %sprawdza czy podana komĂłrka znajduje się na tablicy
         W=getWidth(L),
         H=getHeight(L),
         onBoard(X,Y,W,H).        
@@ -49,7 +49,7 @@ sum_neighbours(Arr,Nei)-> %sumuje wszystkich sasiadow
         lists:sum([getElem({Y,X},Arr) || {X,Y} <- Nei]).
         
 
-divideArray(Arr,Size)-> %dzieli podana tablice na podana ilośc podtablic - potrzebne przy dzieleniu tablicy na procesy
+divideArray(Arr,Size)-> %dzieli podana tablice na podana ilość podtablic - potrzebne przy dzieleniu tablicy na procesy
         Avg = round(getHeight(Arr)/Size),
         Last = getHeight(Arr) - ((Size-1)*Avg),
         composeWholeArray(Arr,Size,Avg,Last,[]).   
